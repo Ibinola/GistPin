@@ -1,8 +1,12 @@
 export class Gist {
   id: string;
-  text: string;
+  gistId: string;
+  locationCell: string;
   lat: number;
-  lng: number;
-  category: string;
+  lon: number;
+  contentCid: string;
+  text: string;
+  authorAddress: string | null;
+  txHash: string;
   createdAt: Date;
 }

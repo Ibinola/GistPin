@@ -1,18 +1,21 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-
 import 'reflect-metadata';
-import { IsString, IsNumber } from 'class-validator';
+import { IsNumber, IsOptional, IsString, Max, Min } from 'class-validator';
 
 export class CreateGistDto {
-  @IsString()
-  text: string = '';
-
   @IsNumber()
+  @Min(-90)
+  @Max(90)
   lat: number = 0;
 
   @IsNumber()
-  lng: number = 0;
+  @Min(-180)
+  @Max(180)
+  lon: number = 0;
 
   @IsString()
-  category: string = '';
+  text: string = '';
+
+  @IsOptional()
+  @IsString()
+  authorAddress?: string;
 }

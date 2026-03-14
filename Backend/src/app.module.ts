@@ -1,11 +1,20 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GistsModule } from './gists/gists.module';
-import { FtsoModule } from './ftso/ftso.module';
+import { IndexerModule } from './indexer/indexer.module';
+import configuration from './config/configuration';
 
 @Module({
-  imports: [GistsModule, FtsoModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [configuration],
+    }),
+    GistsModule,
+    IndexerModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
