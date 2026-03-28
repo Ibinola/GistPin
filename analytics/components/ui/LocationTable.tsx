@@ -1,13 +1,19 @@
 'use client';
 
 import Sparkline from '@/components/charts/Sparkline';
-
-const mock = [
-  { location: 'Abuja', values: [10, 20, 30, 25, 40, 50, 60] },
-  { location: 'Lagos', values: [60, 50, 40, 35, 30, 20, 10] },
-];
+import { useLocationDataQuery } from '@/lib/analytics-queries';
 
 export default function LocationTable() {
+  const { data, isLoading, error } = useLocationDataQuery();
+
+  if (isLoading || !data) {
+    return <p>Loading location trends...</p>;
+  }
+
+  if (error) {
+    return <p>Unable to load location trends.</p>;
+  }
+
   return (
     <table>
       <thead>
@@ -17,7 +23,7 @@ export default function LocationTable() {
         </tr>
       </thead>
       <tbody>
-        {mock.map((row) => (
+        {data.map((row) => (
           <tr key={row.location}>
             <td>{row.location}</td>
             <td>
