@@ -1,3 +1,4 @@
+import ChartExportCard from '@/components/ui/ChartExportCard';
 import ScatterChart from '@/components/charts/ScatterChart';
 import RadarChart from '@/components/charts/RadarChart';
 import CategoryPieChart from '@/components/charts/CategoryPieChart';
@@ -7,26 +8,46 @@ import UserAreaChart from '@/components/charts/UserAreaChart';
 
 export default function Page() {
   return (
-    <div>
-      <h1>Analytics Dashboard</h1>
+    <main
+      style={{
+        maxWidth: 1120,
+        margin: '0 auto',
+        padding: '40px 24px 64px',
+      }}
+    >
+      <h1 style={{ marginTop: 0, marginBottom: 10, fontSize: 38 }}>Analytics Dashboard</h1>
+      <p style={{ marginTop: 0, marginBottom: 28, color: '#475569', fontSize: 16 }}>
+        Export individual charts as crisp PNG images with optional white or transparent
+        backgrounds, and copy them directly to the clipboard when needed.
+      </p>
 
-      <h2>Live Gists</h2>
-      <LiveGistCounter />
+      <section style={{ marginBottom: 24 }}>
+        <h2>Live Gists</h2>
+        <LiveGistCounter />
+      </section>
 
-      <h2>New vs Returning Users (90 days)</h2>
-      <UserAreaChart />
+      <div style={{ display: 'grid', gap: 24 }}>
+        <ChartExportCard title="New vs Returning Users (90 days)">
+          <UserAreaChart />
+        </ChartExportCard>
 
-      <h2>Scatter</h2>
-      <ScatterChart />
+        <ChartExportCard title="Scatter">
+          <ScatterChart />
+        </ChartExportCard>
 
-      <h2>Radar</h2>
-      <RadarChart />
+        <ChartExportCard title="Radar">
+          <RadarChart />
+        </ChartExportCard>
 
-      <h2>Category Distribution</h2>
-      <CategoryPieChart />
+        <ChartExportCard title="Category Distribution">
+          <CategoryPieChart />
+        </ChartExportCard>
+      </div>
 
-      <h2>Locations</h2>
-      <LocationTable />
-    </div>
+      <section style={{ marginTop: 24 }}>
+        <h2>Locations</h2>
+        <LocationTable />
+      </section>
+    </main>
   );
 }
