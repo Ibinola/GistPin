@@ -49,6 +49,41 @@ function ExportIcon({ size = 20 }: { size?: number }) {
   );
 }
 
+function FunnelIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+    </svg>
+  );
+}
+
+function DatabaseIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+    </svg>
+  );
+}
+
+function FlaskIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 3h6M9 3v7l-5 9h16l-5-9V3" />
+    </svg>
+  );
+}
+
+function BellIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+      <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+    </svg>
+  );
+}
+
 function MenuIcon({ size = 22 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -104,10 +139,14 @@ function GistPinLogo() {
 // ── Nav config ────────────────────────────────────────────────────────────────
 
 const NAV_ITEMS = [
-  { label: 'Overview',    href: '/',           icon: OverviewIcon },
-  { label: 'Users',       href: '/users',       icon: UsersIcon },
-  { label: 'Geographic',  href: '/geographic',  icon: GeoIcon },
-  { label: 'Export',      href: '/export',      icon: ExportIcon },
+  { label: 'Overview',       href: '/',                        icon: OverviewIcon },
+  { label: 'Users',          href: '/users',                   icon: UsersIcon },
+  { label: 'Geographic',     href: '/geographic',              icon: GeoIcon },
+  { label: 'Export',         href: '/export',                  icon: ExportIcon },
+  { label: 'Funnel',         href: '/funnel',                  icon: FunnelIcon },
+  { label: 'DB Performance', href: '/db-performance',          icon: DatabaseIcon },
+  { label: 'Experiments',    href: '/experiments',             icon: FlaskIcon },
+  { label: 'Notifications',  href: '/settings/notifications',  icon: BellIcon },
 ] as const;
 
 const DATE_RANGES = ['7D', '30D', '90D', '1Y'] as const;
