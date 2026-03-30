@@ -104,10 +104,14 @@ function GistPinLogo() {
 // ── Nav config ────────────────────────────────────────────────────────────────
 
 const NAV_ITEMS = [
-  { label: 'Overview',    href: '/',           icon: OverviewIcon },
-  { label: 'Users',       href: '/users',       icon: UsersIcon },
-  { label: 'Geographic',  href: '/geographic',  icon: GeoIcon },
-  { label: 'Export',      href: '/export',      icon: ExportIcon },
+  { label: 'Overview',    href: '/',            icon: OverviewIcon },
+  { label: 'Users',       href: '/users',        icon: UsersIcon },
+  { label: 'Geographic',  href: '/geographic',   icon: GeoIcon },
+  { label: 'Export',      href: '/export',       icon: ExportIcon },
+  { label: 'Forecast',    href: '/forecast',     icon: ExportIcon },
+  { label: 'Benchmark',   href: '/benchmark',    icon: OverviewIcon },
+  { label: 'Campaigns',   href: '/campaigns',    icon: UsersIcon },
+  { label: 'Share Card',  href: '/share-card',   icon: ExportIcon },
 ] as const;
 
 const DATE_RANGES = ['7D', '30D', '90D', '1Y'] as const;
